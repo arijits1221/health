@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADARA - A Way to Care</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Auth Container -->
+    <div id="authContainer" class="auth-container">
+        <div class="auth-box">
+            <!-- User Type Selection -->
+            <div id="userTypeSelection" class="user-type-section">
+                <div class="auth-header">
+                    <div class="logo-circle">
+                        <img src="logo.png" alt="ARADA Logo" class="logo-image">
+                    </div>
+                    <h1 class="app-logo">ADARA</h1>
+                    <p class="tagline">A Way to Care</p>
+                </div>
+
+                <div class="user-type-container">
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #2C3E50;">
+                        <i class="fas fa-question-circle"></i> Are you a Patient or Doctor?
+                    </h2>
+
+                    <div class="user-type-cards">
+                        <div class="user-type-card patient-card" id="patientTypeBtn">
+                            <div class="type-icon">👨‍⚕️</div>
+                            <h3>Patient</h3>
+                            <p>Find healthcare services, book appointments, shop medicines, and manage your health records</p>
+                            <button class="btn btn-primary" type="button" style="margin-top: 15px;">
+                                <i class="fas fa-arrow-right"></i> Continue as Patient
+                            </button>
+                        </div>
+
+                        <div class="user-type-card doctor-card" id="doctorTypeBtn">
+                            <div class="type-icon">🩺</div>
+                            <h3>Doctor</h3>
+                            <p>Manage appointments, consult patients, and grow your practice</p>
+                            <button class="btn btn-primary" type="button" style="margin-top: 15px; background: #27AE60;">
+                                <i class="fas fa-arrow-right"></i> Continue as Doctor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patient Auth Section -->
+            <div id="patientAuthSection" class="auth-section hidden">
+                <div class="auth-header">
+                    <div class="logo-circle">
+                         <img src="logo.png" alt="ARADA Logo" class="logo-image">
+                    </div>
+                    <h1 class="app-logo">ADARA</h1>
+                    <p class="tagline">A Way to Care</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <button class="auth-tab-btn active" id="signupTabBtn" type="button">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </button>
+                    <button class="auth-tab-btn" id="signinTabBtn" type="button">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                </div>
+
+                <!-- Sign Up Form -->
+                <form id="signupForm" class="auth-form active">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="fullname" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-birthday-cake"></i> Age *</label>
+                            <input type="number" id="age" placeholder="25" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-mars-and-venus"></i> Gender *</label>
+                            <select id="gender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Date of Birth *</label>
+                        <input type="date" id="dob" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-map"></i> State *</label>
+                            <select id="state" required>
+                                <option value="">Select State</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Haryana">Haryana</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-city"></i> City *</label>
+                            <input type="text" id="city" placeholder="Your city" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="phone" placeholder="Your phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password *</label>
+                        <input type="password" id="password" placeholder="Min 8 characters" required>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="locationPermission" required>
+                        <label><i class="fas fa-location-arrow"></i> Allow location access</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> Sign Up & Continue
+                    </button>
+
+                    <p class="auth-link" style="text-align: center; margin-top: 15px;">
+                        <a href="#" id="backToTypeBtn" style="color: #FF6B6B;">← Back to Type Selection</a>
+                    </p>
+                </form>
+
+                <!-- Sign In Form -->
+                <form id="signinForm" class="auth-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Name *</label>
+                        <input type="text" id="signinName" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password *</label>
+                        <input type="password" id="signinPassword" placeholder="Password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                    <p class="auth-link">New here? <a href="#" id="switchToSignup">Create an account</a></p>
+
+                    <p class="auth-link" style="text-align: center; margin-top: 15px;">
+                        <a href="#" id="backToTypeBtn2" style="color: #FF6B6B;">← Back to Type Selection</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Doctor Auth Section -->
+            <div id="doctorAuthSection" class="auth-section hidden">
+                <div class="auth-header">
+                    <div class="logo-circle">
+                         <img src="logo.png" alt="ARADA Logo" class="logo-image">
+                    </div>
+                    <h1 class="app-logo">ADARA</h1>
+                    <p class="tagline">A Way to Care</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <button class="auth-tab-btn active" id="doctorSignupTabBtn" type="button">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                    <button class="auth-tab-btn" id="doctorSigninTabBtn" type="button">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                </div>
+
+                <!-- Doctor Sign Up Form -->
+                <form id="doctorSignupForm" class="auth-form active">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="doctorName" placeholder="Dr. Your Name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-briefcase"></i> Specialization *</label>
+                            <select id="doctorSpecialty" required>
+                                <option value="">Select Specialty</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Neurology">Neurology</option>
+                                <option value="Orthopedics">Orthopedics</option>
+                                <option value="General Practice">General Practice</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="Oncology">Oncology</option>
+                                <option value="Psychiatry">Psychiatry</option>
+                                <option value="Dermatology">Dermatology</option>
+                                <option value="ENT">ENT</option>
+                                <option value="Gastroenterology">Gastroenterology</option>
+                                <option value="Urology">Urology</option>
+                                <option value="Pulmonology">Pulmonology</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-hospital"></i> Hospital *</label>
+                            <select id="doctorHospital" required>
+                                <option value="">Select Hospital</option>
+                                <option value="Apollo Hospitals">Apollo Hospitals</option>
+                                <option value="Max Healthcare">Max Healthcare</option>
+                                <option value="Fortis Healthcare">Fortis Healthcare</option>
+                                <option value="Sir Ganga Ram Hospital">Sir Ganga Ram Hospital</option>
+                                <option value="Delhi Heart Institute">Delhi Heart Institute</option>
+                                <option value="Indraprastha Apollo">Indraprastha Apollo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-certificate"></i> Medical License *</label>
+                            <input type="text" id="licenseNumber" placeholder="License Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-star"></i> Years of Experience *</label>
+                            <input type="number" id="doctorExperience" placeholder="e.g., 10" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-graduation-cap"></i> Qualifications *</label>
+                        <input type="text" id="qualifications" placeholder="e.g., MBBS, MD, DM" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Contact Number *</label>
+                            <input type="tel" id="doctorPhone" placeholder="Your phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email *</label>
+                            <input type="email" id="doctorEmail" placeholder="Your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password *</label>
+                        <input type="password" id="doctorPassword" placeholder="Min 8 characters" required>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="doctorTerms" required>
+                        <label><i class="fas fa-check"></i> I agree to terms and medical ethics</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="background: #27AE60;">
+                        <i class="fas fa-arrow-right"></i> Complete Registration
+                    </button>
+
+                    <p class="auth-link" style="text-align: center; margin-top: 15px;">
+                        <a href="#" id="backToTypeBtn3" style="color: #27AE60;">← Back to Type Selection</a>
+                    </p>
+                </form>
+
+                <!-- Doctor Sign In Form -->
+                <form id="doctorSigninForm" class="auth-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" id="doctorSigninEmail" placeholder="Your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password *</label>
+                        <input type="password" id="doctorSigninPassword" placeholder="Password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="background: #27AE60;">
+                        <i class="fas fa-sign-in-alt"></i> Sign In as Doctor
+                    </button>
+
+                    <p class="auth-link">New doctor? <a href="#" id="switchToDoctorSignup">Register here</a></p>
+
+                    <p class="auth-link" style="text-align: center; margin-top: 15px;">
+                        <a href="#" id="backToTypeBtn4" style="color: #27AE60;">← Back to Type Selection</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="theme-toggle-auth">
+            <input type="checkbox" id="themeToggleAuth" class="theme-checkbox">
+            <label for="themeToggleAuth" class="theme-label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </label>
+        </div>
+    </div>
+
+    <!-- Medical Profile Container -->
+    <div id="medicalProfileContainer" class="medical-profile-container hidden">
+        <div class="profile-setup-box">
+            <div class="profile-header">
+                <h2><i class="fas fa-heartbeat"></i> Complete Your Medical Profile</h2>
+                <p>Step <span id="currentStep">1</span> of 8 - Secure & Encrypted</p>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- Blood Group -->
+            <div class="profile-step active" id="step-1">
+                <div class="step-icon">💉</div>
+                <h3>What is your Blood Group?</h3>
+                <p class="step-desc">Critical for emergencies and medical procedures</p>
+                <div class="blood-group-options">
+                    <button class="blood-btn" type="button" data-value="O+">O+</button>
+                    <button class="blood-btn" type="button" data-value="O-">O-</button>
+                    <button class="blood-btn" type="button" data-value="A+">A+</button>
+                    <button class="blood-btn" type="button" data-value="A-">A-</button>
+                    <button class="blood-btn" type="button" data-value="B+">B+</button>
+                    <button class="blood-btn" type="button" data-value="B-">B-</button>
+                    <button class="blood-btn" type="button" data-value="AB+">AB+</button>
+                    <button class="blood-btn" type="button" data-value="AB-">AB-</button>
+                </div>
+            </div>
+
+            <!-- Allergies -->
+            <div class="profile-step" id="step-2">
+                <div class="step-icon">🚨</div>
+                <h3>Do you have any allergies?</h3>
+                <p class="step-desc">Select all that apply - Essential for safe treatment</p>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="Penicillin"> <span>Penicillin</span></label>
+                    <label><input type="checkbox" value="Aspirin"> <span>Aspirin</span></label>
+                    <label><input type="checkbox" value="Ibuprofen"> <span>Ibuprofen</span></label>
+                    <label><input type="checkbox" value="Shellfish"> <span>Shellfish</span></label>
+                    <label><input type="checkbox" value="Peanuts"> <span>Peanuts</span></label>
+                    <label><input type="checkbox" value="Latex"> <span>Latex</span></label>
+                    <label><input type="checkbox" value="None"> <span>No Known Allergies</span></label>
+                </div>
+            </div>
+
+            <!-- Conditions -->
+            <div class="profile-step" id="step-3">
+                <div class="step-icon">🏥</div>
+                <h3>Do you have any chronic conditions?</h3>
+                <p class="step-desc">Long-term health conditions you manage</p>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="Diabetes"> <span>Diabetes</span></label>
+                    <label><input type="checkbox" value="Hypertension"> <span>Hypertension</span></label>
+                    <label><input type="checkbox" value="Asthma"> <span>Asthma</span></label>
+                    <label><input type="checkbox" value="Heart Disease"> <span>Heart Disease</span></label>
+                    <label><input type="checkbox" value="Thyroid"> <span>Thyroid Disorder</span></label>
+                    <label><input type="checkbox" value="None"> <span>None</span></label>
+                </div>
+            </div>
+
+            <!-- Medications -->
+            <div class="profile-step" id="step-4">
+                <div class="step-icon">💊</div>
+                <h3>Current medications?</h3>
+                <p class="step-desc">All prescription and regular medicines</p>
+                <textarea id="medicationsText" placeholder="e.g., Aspirin 100mg daily, Metformin 500mg twice daily"></textarea>
+            </div>
+
+            <!-- Surgeries -->
+            <div class="profile-step" id="step-5">
+                <div class="step-icon">🔪</div>
+                <h3>Any past surgeries or implants?</h3>
+                <p class="step-desc">Include dates if possible</p>
+                <textarea id="surgeriesText" placeholder="e.g., Appendectomy (2018), Knee Surgery (2022)"></textarea>
+            </div>
+
+            <!-- Vitals -->
+            <div class="profile-step" id="step-6">
+                <div class="step-icon">⚖️</div>
+                <h3>Your Height & Weight</h3>
+                <p class="step-desc">Helps calculate BMI and health metrics</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-ruler-vertical"></i> Height (cm)</label>
+                        <input type="number" id="height" placeholder="170">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-weight"></i> Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="70">
+                    </div>
+                </div>
+                <div id="bmiDisplay" class="bmi-info"></div>
+            </div>
+
+            <!-- Emergency -->
+            <div class="profile-step" id="step-7">
+                <div class="step-icon">🆘</div>
+                <h3>Emergency Contacts</h3>
+                <p class="step-desc">Who to notify in case of emergency</p>
+                <div class="emergency-section">
+                    <h4>Primary Contact</h4>
+                    <input type="text" placeholder="Contact Name" class="emergency-name">
+                    <input type="tel" placeholder="Contact Phone" class="emergency-phone">
+                </div>
+                <div class="emergency-section">
+                    <h4>Secondary Contact</h4>
+                    <input type="text" placeholder="Contact Name" class="emergency-name-2">
+                    <input type="tel" placeholder="Contact Phone" class="emergency-phone-2">
+                </div>
+            </div>
+
+            <!-- Organ -->
+            <div class="profile-step" id="step-8">
+                <div class="step-icon">❤️</div>
+                <h3>Organ Donor Status</h3>
+                <p class="step-desc">Your contribution can save lives</p>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="organDonor" value="Yes">
+                        <span><i class="fas fa-check-circle"></i> Yes, I want to donate organs</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="organDonor" value="No">
+                        <span><i class="fas fa-times-circle"></i> No, I don't want to donate</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="organDonor" value="Undecided">
+                        <span><i class="fas fa-question-circle"></i> Undecided</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="profile-nav">
+                <button class="btn btn-secondary" id="prevBtn" type="button" style="display:none;">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button class="btn btn-primary" id="nextBtn" type="button">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Patient App Container -->
+    <div id="appContainer" class="app-container hidden">
+        <!-- Sidebar Menu -->
+        <div id="sidebarMenu" class="sidebar-menu">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <button class="close-sidebar" id="closeSidebar" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-item" id="favHospitals" data-section="favorites">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorite Hospitals</span>
+                </a>
+                <a href="#" class="sidebar-item" id="favDoctors" data-section="doctors">
+                    <i class="fas fa-user-md"></i>
+                    <span>Favorite Doctors</span>
+                </a>
+                <a href="#" class="sidebar-item" id="myBookings" data-section="bookings">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>My Bookings</span>
+                </a>
+                <a href="#" class="sidebar-item" id="medicalHistory" data-section="history">
+                    <i class="fas fa-history"></i>
+                    <span>Medical History</span>
+                </a>
+                <a href="#" class="sidebar-item" id="prescription" data-section="prescriptions">
+                    <i class="fas fa-prescription-bottle"></i>
+                    <span>Prescriptions</span>
+                </a>
+                <!-- NEW: Aadhar Linking -->
+                <a href="#" class="sidebar-item" id="aadharLink" data-section="aadhar">
+                    <i class="fas fa-id-card"></i>
+                    <span>Link Aadhar ID</span>
+                </a>
+                <div class="sidebar-divider"></div>
+                <a href="#" class="sidebar-item" id="settings" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="sidebar-item" id="darkModeToggle" data-section="theme">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Sidebar Overlay -->
+        <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+        <header class="app-header">
+            <div class="header-content">
+                <button class="menu-toggle" id="menuToggle" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="app-title"><i class="fas fa-heartbeat"></i> ADARA</h1>
+                <p class="user-greeting">Welcome, <span id="userName">User</span>!</p>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="🔍 Search hospitals, doctors, services...">
+            </div>
+        </div>
+
+        <main class="main-content">
+            <!-- Sidebar Content Sections -->
+            <div id="sidebarContent" class="sidebar-content hidden">
+                <!-- Favorites Section -->
+                <div id="favoritesSection" class="sidebar-section active">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2><i class="fas fa-heart"></i> Favorite Hospitals</h2>
+                        <button onclick="app.closeSidebarContent()" class="close-btn" type="button" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div id="favoritesList" class="favorites-list">
+                        <p class="empty-state">No favorite hospitals yet. Add hospitals from the home tab!</p>
+                    </div>
+                </div>
+
+                <!-- Doctors Section -->
+                <div id="doctorsSection" class="sidebar-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2><i class="fas fa-user-md"></i> Favorite Doctors</h2>
+                        <button onclick="app.closeSidebarContent()" class="close-btn" type="button" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div id="doctorsList" class="doctors-list">
+                        <p class="empty-state">No favorite doctors yet. Save doctors from hospital details!</p>
+                    </div>
+                </div>
+
+                <!-- Bookings Section -->
+                <div id="bookingsSection" class="sidebar-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2><i class="fas fa-calendar-check"></i> My Bookings</h2>
+                        <button onclick="app.closeSidebarContent()" class="close-btn" type="button" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div id="bookingsList" class="bookings-list">
+                        <p class="empty-state">No bookings yet. Schedule an appointment to get started!</p>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div id="historySection" class="sidebar-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2><i class="fas fa-history"></i> Medical History</h2>
+                        <button onclick="app.closeSidebarContent()" class="close-btn" type="button" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div id="historyList" class="history-list">
+                        <p class="empty-state">No medical history records yet.</p>
+                    </div>
+                </div>
+
+                <!-- Prescriptions Section -->
+                <div id="prescriptionsSection" class="sidebar-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2><i class="fas fa-prescription-bottle"></i> My Prescriptions</h2>
+                        <button onclick="app.closeSidebarContent()" class="close-btn" type="button" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div id="prescriptionsList" class="prescriptions-list">
+                        <p class="empty-state">No prescriptions uploaded yet.</p>
+                    </div>
+                </div>
+
+                <!-- NEW: Aadhar Section -->
+                <div id="aadharSection" class="sidebar-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2><i class="fas fa-id-card"></i> Link Aadhar ID</h2>
+                        <button onclick="app.closeSidebarContent()" class="close-btn" type="button" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="aadhar-section-container">
+                        <div class="aadhar-info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Linking your Aadhar ID helps us maintain accurate medical records and ensures seamless identity verification.</p>
+                        </div>
+
+                        <div class="aadhar-form">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Full Name (as per Aadhar)</label>
+                                <input type="text" id="aadharName" placeholder="Enter name from Aadhar card" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label><i class="fas fa-hashtag"></i> Aadhar Number</label>
+                                <input type="text" id="aadharNumber" placeholder="Enter 12-digit Aadhar number" maxlength="12" required>
+                                <small style="color: var(--gray); margin-top: 5px; display: block;">Enter only digits: 123456789012</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label><i class="fas fa-phone"></i> Registered Phone Number</label>
+                                <input type="tel" id="aadharPhone" placeholder="Phone registered with Aadhar" required>
+                            </div>
+
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="aadharConsent" required>
+                                <label>I consent to link my Aadhar ID with my medical records</label>
+                            </div>
+
+                            <button class="btn btn-primary" id="linkAadharBtn" type="button" style="width: 100%; margin-top: 15px;">
+                                <i class="fas fa-link"></i> Link Aadhar ID
+                            </button>
+                        </div>
+
+                        <div id="aadharStatus" class="aadhar-status hidden">
+                            <div class="status-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Aadhar ID Successfully Linked!</span>
+                            </div>
+                            <div style="margin-top: 15px; padding: 15px; background: var(--lighter); border-radius: 8px;">
+                                <p><strong>Linked Details:</strong></p>
+                                <p id="linkedName">Name: --</p>
+                                <p id="linkedAadhar">Aadhar: XXXX XXXX XXXX</p>
+                                <p id="linkedDate">Linked on: --</p>
+                            </div>
+                            <button class="btn btn-secondary" id="unlinkAadharBtn" type="button" style="width: 100%; margin-top: 15px;">
+                                <i class="fas fa-unlink"></i> Unlink Aadhar ID
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settingsSection" class="sidebar-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2><i class="fas fa-cog"></i> Settings</h2>
+                        <button onclick="app.closeSidebarContent()" class="close-btn" type="button" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <label>Notifications</label>
+                            <input type="checkbox" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label>Email Updates</label>
+                            <input type="checkbox" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label>Location Services</label>
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Tab -->
+            <section id="homeTab" class="tab-content active">
+                <div class="section-header">
+                    <h2><i class="fas fa-hospital"></i> Nearby Healthcare Facilities</h2>
+                    <p>Find and connect with quality healthcare providers</p>
+                </div>
+                <div id="hospitalsList" class="hospitals-list"></div>
+            </section>
+
+            <!-- Pharmacy Tab -->
+            <section id="pharmacyTab" class="tab-content">
+                <div class="pharmacy-container">
+                    <div class="section-header">
+                        <h2><i class="fas fa-pills"></i> Medicine Shopping</h2>
+                        <p>Compare prices across multiple platforms</p>
+                    </div>
+
+                    <div class="medicine-search-box">
+                        <input type="text" id="medicineSearchInput" placeholder="🔍 Search medicines...">
+                        <button id="searchMedicineBtn" type="button">Search</button>
+                    </div>
+
+                    <div id="medicineResults" class="medicine-results">
+                        <p class="empty-state">Search for medicines to compare prices</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SOS Tab -->
+            <section id="sosTab" class="tab-content">
+                <div class="sos-container">
+                    <div class="sos-alert-box">
+                        <h2><i class="fas fa-exclamation-triangle"></i> EMERGENCY SOS</h2>
+                        <p>Immediate help at your fingertips</p>
+                    </div>
+
+                    <div class="sos-big-button-container">
+                        <button id="sosButton" class="sos-button" type="button">
+                            <span class="sos-icon">🆘</span>
+                            <span class="sos-text">TAP FOR EMERGENCY</span>
+                        </button>
+                    </div>
+
+                    <div class="sos-info-cards">
+                        <div class="info-card">
+                            <i class="fas fa-phone"></i>
+                            <h4>Emergency Contacts Notified</h4>
+                            <p>Family and emergency contacts will receive immediate alert</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Location Shared</h4>
+                            <p>Your GPS location will be shared with emergency services</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-ambulance"></i>
+                            <h4>Ambulance Called</h4>
+                            <p>Nearest ambulance will be dispatched immediately</p>
+                        </div>
+                    </div>
+
+                    <div class="sos-settings">
+                        <h3><i class="fas fa-cog"></i> Emergency Numbers</h3>
+                        <div class="setting-item">
+                            <label><i class="fas fa-ambulance"></i> Ambulance:</label>
+                            <input type="tel" id="ambulanceNumber" value="102">
+                        </div>
+                        <div class="setting-item">
+                            <label><i class="fas fa-shield-alt"></i> Police:</label>
+                            <input type="tel" id="policeNumber" value="100">
+                        </div>
+                        <div class="setting-item">
+                            <label><i class="fas fa-hospital"></i> Fire:</label>
+                            <input type="tel" id="fireNumber" value="101">
+                        </div>
+                    </div>
+
+                    <div class="firstaid-section">
+                        <h3><i class="fas fa-first-aid"></i> First Aid Guides</h3>
+                        <div class="firstaid-grid">
+                            <a href="#" class="firstaid-link" data-issue="choking">
+                                <i class="fas fa-wind"></i>
+                                <span>Choking</span>
+                            </a>
+                            <a href="#" class="firstaid-link" data-issue="cardiac">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Cardiac Arrest</span>
+                            </a>
+                            <a href="#" class="firstaid-link" data-issue="bleeding">
+                                <i class="fas fa-water"></i>
+                                <span>Severe Bleeding</span>
+                            </a>
+                            <a href="#" class="firstaid-link" data-issue="burns">
+                                <i class="fas fa-fire"></i>
+                                <span>Burns</span>
+                            </a>
+                            <a href="#" class="firstaid-link" data-issue="fracture">
+                                <i class="fas fa-bone"></i>
+                                <span>Fracture</span>
+                            </a>
+                            <a href="#" class="firstaid-link" data-issue="poisoning">
+                                <i class="fas fa-skull-crossbones"></i>
+                                <span>Poisoning</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Tab -->
+            <section id="chatbotTab" class="tab-content">
+                <div class="chatbot-container">
+                    <div class="chatbot-header">
+                        <h2><i class="fas fa-robot"></i> AI Health Assistant</h2>
+                        <p>24/7 Medical Guidance & Support</p>
+                    </div>
+
+                    <div id="chatMessages" class="chat-messages">
+                        <div class="message bot-message">
+                            <p><strong>Hello! 👋</strong></p>
+                            <p>I'm your AI Health Assistant. I can help you with:</p>
+                            <ul>
+                                <li><strong>Symptom Checker</strong> - Describe your symptoms</li>
+                                <li><strong>First Aid Guide</strong> - Emergency procedures</li>
+                                <li><strong>Medical Info</strong> - Common diseases & treatments</li>
+                                <li><strong>Health Tips</strong> - Preventive care advice</li>
+                                <li><strong>Medication Info</strong> - Drug details & dosages</li>
+                            </ul>
+                            <p>How can I help you today?</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Ask me about your health...">
+                        <button id="sendChatBtn" type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+
+                    <div class="chat-quick-options">
+                        <button class="quick-opt" data-query="symptoms" type="button">
+                            <i class="fas fa-thermometer-half"></i> Symptoms
+                        </button>
+                        <button class="quick-opt" data-query="medicine" type="button">
+                            <i class="fas fa-pills"></i> Medicines
+                        </button>
+                        <button class="quick-opt" data-query="disease" type="button">
+                            <i class="fas fa-virus"></i> Diseases
+                        </button>
+                        <button class="quick-opt" data-query="tips" type="button">
+                            <i class="fas fa-lightbulb"></i> Tips
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Tab -->
+            <section id="profileTab" class="tab-content">
+                <div class="profile-container">
+                    <div class="profile-header-section">
+                        <div class="profile-avatar-large">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h2 id="profileName">User Name</h2>
+                        <p id="profileLocation"><i class="fas fa-map-marker-alt"></i> City</p>
+                        <div class="profile-badges">
+                            <span class="badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            <span class="badge"><i class="fas fa-heart"></i> Healthy Profile</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <h3><i class="fas fa-user"></i> Personal Information</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Age</label>
+                                <span id="profileAge">--</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Gender</label>
+                                <span id="profileGender">--</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Date of Birth</label>
+                                <span id="profileDOB">--</span>
+                            </div>
+                            <div class="info-item">
+                                <label>City</label>
+                                <span id="profileCity">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-card medical-card">
+                        <div class="medical-card-header">
+                            <h3><i class="fas fa-lock"></i> Medical Profile</h3>
+                            <span class="secure-badge"><i class="fas fa-shield-alt"></i> Encrypted</span>
+                        </div>
+                        <p class="medical-desc">Your medical information is securely encrypted and password-protected</p>
+                        
+                        <button id="viewMedicalBtn" class="btn btn-primary view-medical-btn" type="button">
+                            <i class="fas fa-eye"></i> View Medical Information
+                        </button>
+
+                        <div id="medicalInfoBox" class="medical-info-box hidden">
+                            <div class="medical-unlock-section">
+                                <h4><i class="fas fa-unlock"></i> Unlock Medical Profile</h4>
+                                <p>Enter your password to view encrypted medical data</p>
+                                <input type="password" id="medicalPassword" placeholder="Enter your password" class="password-input">
+                                <button id="unlockMedicalBtn" class="btn btn-primary" type="button">
+                                    <i class="fas fa-lock-open"></i> Unlock
+                                </button>
+                            </div>
+
+                            <div id="medicalContent" class="medical-content hidden">
+                                <div class="medical-info-grid">
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-droplet"></i> Blood Group</label>
+                                        <span id="displayBloodGroup" class="medical-value">--</span>
+                                    </div>
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-exclamation-triangle"></i> Allergies</label>
+                                        <span id="displayAllergies" class="medical-value">--</span>
+                                    </div>
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-hospital"></i> Chronic Conditions</label>
+                                        <span id="displayConditions" class="medical-value">--</span>
+                                    </div>
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-pills"></i> Current Medications</label>
+                                        <span id="displayMedications" class="medical-value">--</span>
+                                    </div>
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-syringe"></i> Surgeries/Implants</label>
+                                        <span id="displaySurgeries" class="medical-value">--</span>
+                                    </div>
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-weight"></i> Height/Weight</label>
+                                        <span id="displayVitals" class="medical-value">--</span>
+                                    </div>
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-heart"></i> Organ Donor</label>
+                                        <span id="displayOrganDonor" class="medical-value">--</span>
+                                    </div>
+                                    <div class="medical-item">
+                                        <label><i class="fas fa-phone"></i> Emergency Contacts</label>
+                                        <span id="displayEmergency" class="medical-value">--</span>
+                                    </div>
+                                </div>
+                                <button id="lockMedicalBtn" class="btn btn-secondary" type="button">
+                                    <i class="fas fa-lock"></i> Lock Medical Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button id="editProfileBtn" class="btn btn-secondary" type="button">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button id="logoutBtn" class="btn btn-danger" type="button">
+                            <i class="fas fa-sign-out-alt"></i> Log Out
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Nav -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-tab="homeTab" type="button">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-tab="pharmacyTab" type="button">
+                <i class="fas fa-pills"></i>
+                <span>Pharmacy</span>
+            </button>
+            <button class="nav-item" data-tab="sosTab" type="button">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>SOS</span>
+            </button>
+            <button class="nav-item" data-tab="chatbotTab" type="button">
+                <i class="fas fa-robot"></i>
+                <span>Chat</span>
+            </button>
+            <button class="nav-item" data-tab="profileTab" type="button">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Doctor Dashboard Container -->
+    <div id="doctorDashboardContainer" class="doctor-dashboard hidden">
+        <header class="app-header">
+            <div class="header-content">
+                <button class="menu-toggle" id="doctorMenuToggle" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="logo.png" alt="ARADA Logo" class="app-logo-img" style="height: 35px; width: auto;">
+    <h1 class="app-title" style="margin: 0;">ADARA - Doctor</h1>
+</div>
+                <p class="user-greeting">Welcome, <span id="doctorNameDisplay">Dr. User</span>!</p>
+                <!-- NEW: Notification Badge -->
+                <div class="notification-badge" id="notificationBadge">
+                    <i class="fas fa-bell"></i>
+                    <span id="notificationCount" class="badge-count">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="doctor-main-content">
+            <!-- NEW: Notifications Tab -->
+            <section id="notificationsTab" class="doctor-tab-content active">
+                <div class="section-header">
+                    <h2><i class="fas fa-bell"></i> Notifications</h2>
+                    <p>Real-time appointment notifications</p>
+                </div>
+                <div id="notificationsList" class="notifications-list">
+                    <p class="empty-state">No new notifications</p>
+                </div>
+            </section>
+
+            <!-- NEW: Smart Queue Tab -->
+            <section id="queueTab" class="doctor-tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-list-ol"></i> Smart Triage Queue</h2>
+                    <p>Patient queue with priority levels and real-time waiting times</p>
+                </div>
+                <div id="queueList" class="queue-list">
+                    <p class="empty-state">No patients in queue</p>
+                </div>
+            </section>
+
+            <!-- Today's Appointments -->
+            <section id="appointmentsTab" class="doctor-tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-check"></i> Today's Appointments</h2>
+                </div>
+                <div id="appointmentsList" class="appointments-list">
+                    <p class="empty-state">No appointments scheduled for today</p>
+                </div>
+            </section>
+
+            <!-- Patient List -->
+            <section id="patientsTab" class="doctor-tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> My Patients</h2>
+                </div>
+                <div id="patientsList" class="patients-list">
+                    <p class="empty-state">No patients yet</p>
+                </div>
+            </section>
+
+            <!-- Availability -->
+            <section id="availabilityTab" class="doctor-tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-clock"></i> Set Availability</h2>
+                </div>
+                <div class="availability-card">
+                    <div class="availability-item">
+                        <label>Monday</label>
+                        <div class="time-inputs">
+                            <input type="time" placeholder="Start">
+                            <span>to</span>
+                            <input type="time" placeholder="End">
+                        </div>
+                    </div>
+                    <div class="availability-item">
+                        <label>Tuesday</label>
+                        <div class="time-inputs">
+                            <input type="time" placeholder="Start">
+                            <span>to</span>
+                            <input type="time" placeholder="End">
+                        </div>
+                    </div>
+                    <div class="availability-item">
+                        <label>Wednesday</label>
+                        <div class="time-inputs">
+                            <input type="time" placeholder="Start">
+                            <span>to</span>
+                            <input type="time" placeholder="End">
+                        </div>
+                    </div>
+                    <div class="availability-item">
+                        <label>Thursday</label>
+                        <div class="time-inputs">
+                            <input type="time" placeholder="Start">
+                            <span>to</span>
+                            <input type="time" placeholder="End">
+                        </div>
+                    </div>
+                    <div class="availability-item">
+                        <label>Friday</label>
+                        <div class="time-inputs">
+                            <input type="time" placeholder="Start">
+                            <span>to</span>
+                            <input type="time" placeholder="End">
+                        </div>
+                    </div>
+                    <div class="availability-item">
+                        <label>Saturday</label>
+                        <div class="time-inputs">
+                            <input type="time" placeholder="Start">
+                            <span>to</span>
+                            <input type="time" placeholder="End">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top: 20px; width: 100%;">
+                        <i class="fas fa-save"></i> Save Availability
+                    </button>
+                </div>
+            </section>
+
+            <!-- Consultation Fees -->
+            <section id="feesTab" class="doctor-tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-rupee-sign"></i> Consultation Fees</h2>
+                </div>
+                <div class="fees-card">
+                    <div class="fee-item">
+                        <label>Video Consultation</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span>₹</span>
+                            <input type="number" placeholder="500" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--light); color: var(--dark);">
+                        </div>
+                    </div>
+                    <div class="fee-item">
+                        <label>Chat Consultation</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span>₹</span>
+                            <input type="number" placeholder="300" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--light); color: var(--dark);">
+                        </div>
+                    </div>
+                    <div class="fee-item">
+                        <label>In-Clinic Visit</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span>₹</span>
+                            <input type="number" placeholder="1000" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--light); color: var(--dark);">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top: 20px; width: 100%;">
+                        <i class="fas fa-save"></i> Save Fees
+                    </button>
+                </div>
+            </section>
+
+            <!-- My Profile -->
+            <section id="doctorProfileTab" class="doctor-tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+                </div>
+                <div class="doctor-profile-card">
+                    <div class="profile-grid">
+                        <div class="profile-item">
+                            <label>Name</label>
+                            <span id="profileDoctorName">--</span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Specialty</label>
+                            <span id="profileDoctorSpecialty">--</span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Hospital</label>
+                            <span id="profileDoctorHospital">--</span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Experience</label>
+                            <span id="profileDoctorExp">--</span>
+                        </div>
+                        <div class="profile-item">
+                            <label>License</label>
+                            <span id="profileDoctorLicense">--</span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Contact</label>
+                            <span id="profileDoctorContact">--</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top: 20px; width: 100%;">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                    <button id="doctorLogoutBtn" class="btn btn-danger" style="margin-top: 10px; width: 100%;" type="button">
+                        <i class="fas fa-sign-out-alt"></i> Log Out
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Doctor Bottom Nav -->
+        <nav class="doctor-bottom-nav">
+            <button class="doctor-nav-item active" data-tab="notificationsTab" type="button">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+            </button>
+            <button class="doctor-nav-item" data-tab="queueTab" type="button">
+                <i class="fas fa-list-ol"></i>
+                <span>Queue</span>
+            </button>
+            <button class="doctor-nav-item" data-tab="appointmentsTab" type="button">
+                <i class="fas fa-calendar-check"></i>
+                <span>Appointments</span>
+            </button>
+            <button class="doctor-nav-item" data-tab="patientsTab" type="button">
+                <i class="fas fa-users"></i>
+                <span>Patients</span>
+            </button>
+            <button class="doctor-nav-item" data-tab="doctorProfileTab" type="button">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Appointment Booking Modal with Smart Triage -->
+    <div id="appointmentBookingModal" class="modal hidden">
+        <div class="modal-content appointment-booking-modal">
+            <button class="modal-close" type="button"><i class="fas fa-times"></i></button>
+            <div id="appointmentBookingContent">
+                <!-- Will be filled by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- First Aid Modal -->
+    <div id="firstaidModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" type="button"><i class="fas fa-times"></i></button>
+            <div id="firstaidContent"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
