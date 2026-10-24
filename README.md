@@ -58,10 +58,10 @@ For healthcare providers, ADARA offers an intelligent practice dashboard equippe
 
 ## ✨ Key Highlights
 
-- ⚡ **Zero Dependencies / No Build Step Required**: Built purely with vanilla modern web standards (Semantic HTML5, CSS3 Custom Properties, and ES6+ JavaScript Object-Oriented architecture). Runs natively in any browser.
+- ⚡ **No Build Step & Minimal Dependencies**: Built purely with vanilla modern web standards (Semantic HTML5, CSS3 Custom Properties, and ES6+ JavaScript Object-Oriented architecture) with minimal dependencies (Font Awesome loaded via CDN). Runs natively in any browser.
 - 🚨 **Emergency-Ready**: High-visibility SOS alert dispatching location and notifying emergency services (102 Ambulance, 100 Police, 101 Fire).
 - 🧠 **Algorithmic Smart Triage**: Automatically categorizes appointments into `CRITICAL`, `MODERATE`, or `NORMAL` based on patient symptoms and vitals.
-- 🔒 **Password-Gated Medical Profile (UI-level)**: Password-protected patient history safeguarding blood groups, allergies, medications, and surgical history.
+- 🔒 **Password-Gated Medical Profile (UI-level)**: Password-gated medical profile view (UI-level).
 - 🌓 **Adaptive Theme**: Built-in Dark Mode / Light Mode with state persistence across browser sessions.
 - 📱 **Responsive Mobile-First UI**: Optimized for smartphones, tablets, and desktop workstations with native-feeling app navigation.
 
@@ -72,7 +72,7 @@ For healthcare providers, ADARA offers an intelligent practice dashboard equippe
 ### 1. Role-Based Dual Portal
 ADARA provides tailored experiences based on user persona right from the landing screen:
 - **Patient Portal**: Comprehensive health tracking, hospital search, medicine shopping, doctor booking, and SOS safety.
-- **Doctor Portal**: Medical credential verification (license, qualifications, specialty), schedule management, triage queue, and fee customization.
+- **Doctor Portal**: Simulated credential form (license, qualifications, specialty), schedule management, triage queue, and fee customization.
 
 ---
 
@@ -95,10 +95,10 @@ New patients complete an interactive onboarding process that organizes critical 
 Unlike standard appointment booking systems that work on a static first-come, first-served basis, ADARA implements a **Smart Medical Triage System**:
 - Scans symptom inputs for high-risk flags (*chest pain, severe breathing difficulty, acute trauma, uncontrolled bleeding*).
 - Immediately classifies patient status:
-  - 🔴 **CRITICAL**: Immediate dispatch, top of queue priority, zero-delay doctor alert.
+  - 🔴 **CRITICAL**: Immediate dispatch, top of queue priority, simulated doctor alert.
   - 🟡 **MODERATE**: Expedited priority following critical cases.
   - 🟢 **NORMAL**: Standard time-slot scheduling.
-- **Token System & Dynamic Wait Times**: Live queue token generator with automated waiting time predictions based on average consultation durations.
+- **Token System & Dynamic Wait Times**: Simulated queue token generator with automated waiting time predictions based on average consultation durations.
 
 ---
 
@@ -121,7 +121,7 @@ Integrated pharmacy search simulation providing sample price visibility:
 ---
 
 ### 6. Life-Saving Emergency SOS & First Aid Guide
-- **One-Tap SOS Trigger**: Prominently accessible red emergency button that alerts emergency contacts, transmits current GPS coordinates, and dials designated dispatch services.
+- **One-Tap SOS Trigger**: Prominently accessible red emergency button that simulates alerting emergency contacts, sharing GPS coordinates, and dialing dispatch services.
 - **Customizable Emergency Numbers**: Pre-configured with national emergency hotlines (102, 100, 101) with user-editable options.
 - **Interactive First Aid Guides**: Immediate emergency step-by-step procedures with visual guidelines for:
   - 🫁 Choking (Heimlich Maneuver)
@@ -135,7 +135,7 @@ Integrated pharmacy search simulation providing sample price visibility:
 
 ### 7. 24/7 AI Health Assistant (Chatbot)
 An interactive medical guide built directly into the patient bottom bar:
-- **Symptom Checker**: Diagnostic guidance based on duration, severity, and localized discomfort.
+- **Symptom Checker**: Rule-based symptom guidance (demonstration only, not medical advice) based on duration, severity, and localized discomfort.
 - **Quick-Prompt Shortcuts**: Instant cards for *Symptoms*, *Medicines*, *Diseases*, and *Preventive Tips*.
 - **Home Care & Precautions**: Safe self-care protocols for mild ailments (fever, migraine, common cold, coughing).
 - **Escalation Advice**: Clear red-flag warning triggers specifying when to seek immediate in-person emergency care.
@@ -151,7 +151,7 @@ An interactive medical guide built directly into the patient bottom bar:
 
 ### 👨‍⚕️ Doctor Portal Dashboard
 Healthcare professionals access a dedicated suite of practice management tools:
-- **Live Notifications Feed**: Real-time alerts as soon as patients book or update consults.
+- **Simulated Notifications Feed**: Simulated alerts as soon as patients book or update consults.
 - **Smart Queue Manager**: View arriving patients ranked automatically by triage severity level with calculated waiting intervals.
 - **Today's Appointments**: Detailed calendar agenda of booked slots.
 - **Patient History Records**: Lookup past consultations, prescriptions, and medical records.
@@ -184,12 +184,12 @@ flowchart TD
     TriageEngine -->|Critical / Moderate / Normal| PriorityQueue[(Triage Priority Queue)]
     
     %% Doctor Flow
-    Choice -->|Doctor| DAuth[Doctor Registration & Verification]
+    Choice -->|Doctor| DAuth[Doctor Registration (Simulated)]
     DAuth --> DDash[Doctor Management Portal]
     
     PriorityQueue --> DDash
     DDash --> DQueue[Smart Triage Queue]
-    DDash --> DNotify[Live Notifications]
+    DDash --> DNotify[Simulated Notifications]
     DDash --> DAppts[Today's Appointments]
     DDash --> DFees[Consultation Fee Setup]
     DDash --> DAvail[Availability Scheduler]
@@ -229,7 +229,7 @@ health/
 ## ⚡ Getting Started
 
 ### Prerequisites
-ADARA is built with zero external dependencies, package managers, or compilation steps. All you need is a modern web browser:
+ADARA requires no build step and has minimal dependencies (Font Awesome loaded via CDN). All you need is a modern web browser:
 - Google Chrome (recommended)
 - Mozilla Firefox
 - Microsoft Edge
@@ -275,7 +275,7 @@ ADARA is built with zero external dependencies, package managers, or compilation
 2. Register with your medical license number, specialty (e.g., *Cardiology*), hospital affiliation, and experience.
 3. Access the **Doctor Dashboard**:
    - Check the **Queue** tab to monitor patients categorized with triage priority tags.
-   - Review the **Notifications** tab for real-time booking alerts.
+   - Review the **Notifications** tab for simulated booking alerts.
    - Configure weekly consultation availability and set rates for Video/In-Clinic visits.
 
 ---
