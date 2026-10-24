@@ -5,6 +5,7 @@
 ![ADARA Logo](logo.png)
 
 ### **A Unified, Next-Generation Digital Healthcare & Smart Triage Platform**
+*(Frontend Prototype)*
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -26,15 +27,16 @@
 - [Key Highlights](#-key-highlights)
 - [Core Features](#-core-features)
   - [1. Role-Based Dual Portal (Patient & Doctor)](#1-role-based-dual-portal)
-  - [2. 8-Step Encrypted Medical Profile Vault](#2-8-step-encrypted-medical-profile-vault)
+  - [2. 8-Step Medical Profile](#2-8-step-medical-profile)
   - [3. Smart Triage & Priority Queue Engine](#3-smart-triage--priority-queue-engine)
   - [4. Nearby Hospital Directory & Booking](#4-nearby-hospital-directory--booking)
   - [5. Multi-Platform Medicine Price Comparison](#5-multi-platform-medicine-price-comparison)
   - [6. Life-Saving Emergency SOS & First Aid Guide](#6-life-saving-emergency-sos--first-aid-guide)
   - [7. 24/7 AI Health Assistant (Chatbot)](#7-247-ai-health-assistant-chatbot)
-  - [8. Digital ID & ABHA/Aadhar Integration](#8-digital-id--abhaaadhar-integration)
+  - [8. Digital ID & ABHA/Aadhaar Integration](#8-digital-id--abhaaadhaar-integration)
 - [System Architecture](#-system-architecture)
 - [Project Directory Structure](#-project-directory-structure)
+- [Tech Stack](#-tech-stack)
 - [Getting Started](#-getting-started)
 - [Usage Guide & Workflow](#-usage-guide--workflow)
 - [Security & Data Privacy](#-security--data-privacy)
@@ -46,9 +48,11 @@
 
 ## 🌟 Overview
 
-**ADARA — A Way to Care** is an all-in-one healthcare management web application designed to streamline healthcare access. Whether a patient is experiencing a sudden medical emergency, searching for specialized hospital facilities, comparing generic prescription prices across quick-commerce delivery platforms, or managing chronic conditions, ADARA provides instant assistance.
+**ADARA — A Way to Care** is a frontend prototype of an all-in-one healthcare management web application designed to streamline healthcare access. Whether a patient is experiencing a sudden medical emergency, searching for specialized hospital facilities, comparing generic prescription prices across quick-commerce delivery platforms, or managing chronic conditions, ADARA provides an intuitive demonstration interface.
 
-For healthcare providers, ADARA offers an intelligent practice dashboard equipped with an automated **Smart Triage Priority Engine**, ensuring critical medical emergencies are prioritized over routine consultations.
+> ℹ️ **Prototype Notice**: This application is a client-side frontend prototype that operates entirely on mock data and local browser storage; it does not connect to a real production backend or live healthcare infrastructure.
+
+For healthcare providers, ADARA offers an intelligent practice dashboard equipped with an automated **Smart Triage Priority Engine**, demonstrating how critical medical emergencies can be prioritized over routine consultations.
 
 ---
 
@@ -57,7 +61,7 @@ For healthcare providers, ADARA offers an intelligent practice dashboard equippe
 - ⚡ **Zero Dependencies / No Build Step Required**: Built purely with vanilla modern web standards (Semantic HTML5, CSS3 Custom Properties, and ES6+ JavaScript Object-Oriented architecture). Runs natively in any browser.
 - 🚨 **Emergency-Ready**: High-visibility SOS alert dispatching location and notifying emergency services (102 Ambulance, 100 Police, 101 Fire).
 - 🧠 **Algorithmic Smart Triage**: Automatically categorizes appointments into `CRITICAL`, `MODERATE`, or `NORMAL` based on patient symptoms and vitals.
-- 🔒 **Encrypted Medical Profile Vault**: Password-protected patient history safeguarding blood groups, allergies, medications, and surgical history.
+- 🔒 **Password-Gated Medical Profile (UI-level)**: Password-protected patient history safeguarding blood groups, allergies, medications, and surgical history.
 - 🌓 **Adaptive Theme**: Built-in Dark Mode / Light Mode with state persistence across browser sessions.
 - 📱 **Responsive Mobile-First UI**: Optimized for smartphones, tablets, and desktop workstations with native-feeling app navigation.
 
@@ -72,7 +76,7 @@ ADARA provides tailored experiences based on user persona right from the landing
 
 ---
 
-### 2. 8-Step Encrypted Medical Profile Vault
+### 2. 8-Step Medical Profile
 New patients complete an interactive onboarding process that organizes critical health metrics:
 1. **Blood Group**: Direct selector for ABO/Rh blood types (`O+`, `O-`, `A+`, `A-`, `B+`, `B-`, `AB+`, `AB-`).
 2. **Allergy Registry**: Tracks reactions to drugs (Penicillin, Aspirin, Ibuprofen) and environmental factors (Latex, Shellfish, Peanuts).
@@ -83,7 +87,7 @@ New patients complete an interactive onboarding process that organizes critical 
 7. **Emergency Contacts**: Stores dual primary and secondary contact details.
 8. **Organ Donor Registration**: Formal consent and organ donation preference declaration.
 
-> 🔐 **Privacy Vault**: Medical records are locked behind user password verification in the profile view to prevent unauthorized exposure.
+> 🔐 **Privacy Note**: The password check is an interface-level gate only; data is stored locally in the browser's `localStorage` without backend encryption.
 
 ---
 
@@ -99,20 +103,20 @@ Unlike standard appointment booking systems that work on a static first-come, fi
 ---
 
 ### 4. Nearby Hospital Directory & Booking
-Browse and filter top-tier verified healthcare institutions:
-- **Comprehensive Profiles**: Apollo Hospitals, Max Healthcare, Fortis Healthcare, Sir Ganga Ram Hospital, Delhi Heart Institute, and Indraprastha Apollo.
-- **Key Metrics**: Verified ratings, total bed capacity, distance in km, fee ranges, and direct contact numbers.
-- **Facility Infrastructure**: Real-time indicators for 24/7 Emergency, ICU units, OPD operation, Operation Theatres (OTs), Cath Labs, and Pathology Diagnostics.
-- **Doctor Rosters**: Direct booking with specialized physicians, cardiologists, orthopedic surgeons, pediatricians, and neurologists.
-- **Favorites / Bookmarks**: Save preferred hospitals and practitioners for one-click access.
+Browse and filter sample healthcare institutions *(Mock data for demonstration)*:
+- **Sample Profiles**: Directory listings showing sample facility data for demonstration purposes (e.g., sample profiles representing Apollo Hospitals, Max Healthcare, Fortis Healthcare, Sir Ganga Ram Hospital, Delhi Heart Institute, and Indraprastha Apollo).
+- **Key Metrics**: Sample ratings, bed capacities, distance indicators, fee ranges, and sample contact numbers.
+- **Facility Infrastructure**: Visual indicators for 24/7 Emergency, ICU units, OPD operation, Operation Theatres (OTs), Cath Labs, and Pathology Diagnostics.
+- **Doctor Rosters**: Interactive booking flow with sample physician profiles across specialties.
+- **Favorites / Bookmarks**: Save preferred hospitals and practitioners locally for quick access.
 
 ---
 
 ### 5. Multi-Platform Medicine Price Comparison
-Integrated pharmacy search engine providing instant price visibility:
-- **Fast-Delivery Platforms**: Compares live pricing and estimated delivery speeds across platforms including **Zepto** (10 mins), **Blinkit** (12 mins), **Instamart** (15 mins), **Apollo 24/7**, and **Pharmeasy**.
-- **Alternative Medicine Suggestions**: Recommends generic equivalents (e.g., Crocin / Dolo / Paracetamol for Aspirin) to reduce out-of-pocket costs.
-- **Direct Order Links**: Quick-cart checkout redirect.
+Integrated pharmacy search simulation providing sample price visibility:
+- **Delivery Platforms (Demonstration Only)**: Compares sample prices and estimated delivery times across mock listings for platforms including **Zepto** (10 mins), **Blinkit** (12 mins), **Instamart** (15 mins), **Apollo 24/7**, and **Pharmeasy**. These platforms are shown for demonstration only with no real third-party API integration.
+- **Alternative Medicine Suggestions**: Shows suggested generic alternatives (e.g., Crocin / Dolo / Paracetamol for Aspirin) to demonstrate cost-comparison workflows.
+- **Direct Order Links**: Simulated checkout and cart redirects.
 
 ---
 
@@ -138,10 +142,10 @@ An interactive medical guide built directly into the patient bottom bar:
 
 ---
 
-### 8. Digital ID & ABHA/Aadhar Integration
-- Seamless patient identity verification through **12-digit Aadhar / ABHA ID** linking.
-- Full consent-driven verification workflow with status badges and unlinking management.
-- Lays the foundation for unified national digital health record compliance.
+### 8. Digital ID & ABHA/Aadhaar Integration
+- **Simulated ABHA/Aadhaar linking UI** through a prototype 12-digit ID input and status flow.
+- Demonstrates a consent-driven linking workflow with mock status badges and unlinking controls.
+- Illustrates how unified digital health record credentials could be managed in a future integrated system.
 
 ---
 
@@ -164,15 +168,15 @@ flowchart TD
     
     %% Patient Flow
     Choice -->|Patient| PAuth[Patient Auth / Signup]
-    PAuth --> PProfile[8-Step Encrypted Medical Profile]
+    PAuth --> PProfile[8-Step Medical Profile]
     PProfile --> PDash[Patient Dashboard]
     
     PDash --> Tab1[🏥 Nearby Hospitals & Doctors]
     PDash --> Tab2[💊 Medicine Price Comparison]
     PDash --> Tab3[🚨 Emergency SOS & First Aid]
     PDash --> Tab4[🤖 AI Health Assistant]
-    PDash --> Tab5[👤 Profile & Encrypted Vault]
-    PDash --> SideNav[📑 Aadhar Link, Bookings & Favorites]
+    PDash --> Tab5[👤 Profile & Password Gate]
+    PDash --> SideNav[📑 Aadhaar Link, Bookings & Favorites]
     
     %% Triage Engine
     Tab1 --> BookApp[Book Appointment]
@@ -263,7 +267,7 @@ ADARA is built with zero external dependencies, package managers, or compilation
 3. Complete the **8-step Medical Profile** (select blood group, chronic conditions, allergy tags, etc.) or skip forward.
 4. On the **Home** tab, explore nearby hospitals and click **"Book Appointment"** on any doctor.
 5. In the booking modal, select symptoms such as *"Chest Pain"* or set Severity to *"Critical"* to witness the **Smart Triage Engine** assign high priority.
-6. Check the **Pharmacy** tab and search for `aspirin`, `paracetamol`, or `crocin` to review live platform pricing.
+6. Check the **Pharmacy** tab and search for `aspirin`, `paracetamol`, or `crocin` to see sample prices.
 7. Tap the **Emergency SOS** tab to review immediate first aid procedures and emergency protocols.
 
 ### Testing as a Doctor
@@ -278,13 +282,14 @@ ADARA is built with zero external dependencies, package managers, or compilation
 
 ## 🛡️ Security & Data Privacy
 
-- **Client-Side Encrypted Vault**: Sensitive medical indicators (allergies, donor status, surgical history) require user password authorization before being revealed in the UI.
-- **Isolated Local Sessions**: Data stored in browser `localStorage` avoids third-party tracking cookies.
-- **Explicit Aadhar Consent**: Digital ID linking requires an explicit user consent checkbox before processing.
-- **Production Readiness Note**: When connecting to a production remote backend, ensure:
-  - Transport Layer Security (HTTPS) encryption.
-  - End-to-end encryption for stored Protected Health Information (PHI).
-  - Adherence to HIPAA / GDPR / ABDM (Ayushman Bharat Digital Mission) compliance guidelines.
+- **Interface-Level Password Gate**: Sensitive medical records (allergies, donor status, surgical history) require password entry in the UI before displaying, acting as a presentation barrier in this prototype.
+- **Local Browser Storage**: All data is stored purely on the client side in browser `localStorage` with no external server transmission.
+- **Consent Checkbox UI**: The simulated Aadhaar linking flow demonstrates explicit user consent design patterns.
+- **Requirements for a Future Backend (Production Implementation)**:
+  - Enforce Transport Layer Security (HTTPS) for all API transactions.
+  - Implement true end-to-end encryption (E2EE) and robust encryption-at-rest for Protected Health Information (PHI).
+  - Ensure full regulatory compliance with HIPAA, GDPR, and ABDM (Ayushman Bharat Digital Mission) data standards.
+  - Use secure server-side authentication (e.g., JWT, OAuth2) and salted password hashing (e.g., Argon2, bcrypt).
 
 ---
 
