@@ -15,7 +15,7 @@
 
 *ADARA bridges the gap between patients, medical practitioners, and emergency services through an intuitive, accessible, and privacy-conscious web interface.*
 
-[Explore Features](#-core-features) • [Quick Start](#-getting-started) • [Architecture](#-system-architecture) • [Doctor Portal](#-doctor-portal-dashboard) • [Patient Portal](#-patient-portal)
+[Explore Features](#-core-features) • [Quick Start](#-getting-started) • [Architecture](#-system-architecture) • [Doctor Portal](#-doctor-portal-dashboard) • [Patient Portal](#1-role-based-dual-portal)
 
 </div>
 
@@ -59,9 +59,9 @@ For healthcare providers, ADARA offers an intelligent practice dashboard equippe
 ## ✨ Key Highlights
 
 - ⚡ **No Build Step & Minimal Dependencies**: Built purely with vanilla modern web standards (Semantic HTML5, CSS3 Custom Properties, and ES6+ JavaScript Object-Oriented architecture) with minimal dependencies (Font Awesome loaded via CDN). Runs natively in any browser.
-- 🚨 **Emergency-Ready**: High-visibility SOS alert dispatching location and notifying emergency services (102 Ambulance, 100 Police, 101 Fire).
+- 🚨 **Emergency-Ready**: Simulated SOS alert that mimics dispatching location and notifying emergency services (102, 100, 101).
 - 🧠 **Algorithmic Smart Triage**: Automatically categorizes appointments into `CRITICAL`, `MODERATE`, or `NORMAL` based on patient symptoms and vitals.
-- 🔒 **Password-Gated Medical Profile (UI-level)**: Password-gated medical profile view (UI-level).
+- 🔒 **Password-Gated Medical Profile (UI-level)**: Password check before sensitive medical details are shown, applied in the UI only.
 - 🌓 **Adaptive Theme**: Built-in Dark Mode / Light Mode with state persistence across browser sessions.
 - 📱 **Responsive Mobile-First UI**: Optimized for smartphones, tablets, and desktop workstations with native-feeling app navigation.
 
@@ -184,7 +184,7 @@ flowchart TD
     TriageEngine -->|Critical / Moderate / Normal| PriorityQueue[(Triage Priority Queue)]
     
     %% Doctor Flow
-    Choice -->|Doctor| DAuth[Doctor Registration (Simulated)]
+    Choice -->|Doctor| DAuth["Doctor Registration (Simulated)"]
     DAuth --> DDash[Doctor Management Portal]
     
     PriorityQueue --> DDash
